@@ -1,10 +1,13 @@
-import analysis.real data.pfun
+import analysis.real data.pfun order.lattice
 open topological_space set
 
 noncomputable theory
 universes u v w
 def enat : Type := with_top nat
+
 notation `ℕ∞` := enat
+
+instance : lattice.complete_linear_order ℕ∞ := by dsimp [enat]; apply_instance
 
 axiom omitted {α : Sort u} : α
 
@@ -17,22 +20,20 @@ end vector
 
 namespace roption
 
-def similar (o₁ o₂ : roption α) : Prop := ∀{{x y}}, x ∈ o₁ → y ∈ o₂ → x = y
+def compatible (o₁ o₂ : roption α) : Prop := ∀{{x y}}, x ∈ o₁ → y ∈ o₂ → x = y
 
-namespace similar
+namespace compatible
   variables {o₁ o₂ o₃ : roption α}
-  infix ` =. `:50 := roption.similar
+  infix ` =. `:50 := roption.compatible
+  protected lemma compatible_of_eq {x y : α} (h : x = y) : compatible (roption.some x) (roption.some y) :=
+  omitted
   protected lemma symm (h : o₁ =. o₂) : o₂ =. o₁ := λx y hx hy, (h hy hx).symm
   -- note: it is not transitive, probably good to use different notation
-end similar
+end compatible
 
 end roption
 
 namespace pfun
-
-/- continuity of a partial function -/
-def is_continuous [topological_space α] [topological_space β] (f : α →. β) := 
-continuous (f.as_subtype)
 
 protected def empty (α β : Type*) : α →. β := λx, roption.none
 protected def id : α →. α := pfun.lift id
@@ -41,20 +42,27 @@ infix ` ∘. `:90 := pfun.comp
 
 def to_subtype (p : α → Prop) : α →. subtype p := λx, ⟨p x, λ h, ⟨x, h⟩⟩
 
-def similar (f g : α →. β) : Prop := ∀x, f x =. g x
+def compatible (f g : α →. β) : Prop := ∀x, f x =. g x
 
-namespace similar
+namespace compatible
   variables {f g h : α →. β}
-  infix ` ~. `:50 := pfun.similar
+  infix ` ~. `:50 := pfun.compatible
   protected lemma symm (h : f ~. g) : g ~. f := λx, (h x).symm
   -- note: it is not transitive, probably good to use different notation
-end similar
+end compatible
 
 def restrict' (f : α →. β) (p : set α) : α →. β :=
 pfun.restrict f (inter_subset_right p (dom f))
 
 def image (f : α →. β) (p : set α) : set β :=
 λy, ∃ x (hx : x ∈ dom f), f.fn x hx = y
+
+/- continuity of a partial function -/
+def is_continuous [topological_space α] [topological_space β] (f : α →. β) := 
+continuous (f.as_subtype)
+
+def is_continuous_id [topological_space α] : is_continuous (@pfun.id α) := omitted
+
 
 end pfun
 
@@ -70,9 +78,18 @@ structure pequiv (α : Type*) (β : Type*) :=
 
 infixr ` ≃. `:25 := pequiv
 
+namespace equiv
+def to_pequiv (e : α ≃ β) : α ≃. β :=
+⟨e.to_fun, e.inv_fun, λx hx, trivial, λy hy, trivial, omitted, omitted⟩
+
+def rfl : α ≃ α := equiv.refl α
+end equiv
+
 namespace pequiv
 
 instance : has_coe (α ≃. β) (α →. β) := ⟨pequiv.to_fun⟩
+protected def rfl : α ≃. α := equiv.rfl.to_pequiv
+protected def refl (α) : α ≃. α := pequiv.rfl
 protected def symm (e : α ≃. β) : β ≃. α := 
 ⟨e.inv_fun, e.to_fun, e.dom_to_fun, e.dom_inv_fun, e.right_inv, e.left_inv⟩
 protected def trans (e₁ : α ≃. β) (e₂ : β ≃. γ) : α ≃. γ := 
@@ -86,8 +103,8 @@ def subtype_pequiv (p : α → Prop) : subtype p ≃. α :=
 
 end pequiv
 
-instance [t : topological_space α] : topological_space (vector α n) :=
-⨆(l : fin n), induced (λ x, vector.nth x l) t
+-- instance [t : topological_space α] : topological_space (vector α n) :=
+-- ⨆(l : fin n), induced (λ x, vector.nth x l) t
 
 structure Top :=
   (carrier : Type u)
@@ -129,7 +146,7 @@ def standard_euclidean_space (n : ℕ) : euclidean_space :=
 notation `ℝ^` := standard_euclidean_space
 end euclidean_space
 
-variables {k : ℕ∞} {E : euclidean_space.{u}} {E' : euclidean_space.{v}}
+variables {k k' : ℕ∞} {E : euclidean_space.{u}} {E' : euclidean_space.{v}}
 def is_smooth_at (k : ℕ∞) (f : E →. E') (x : E) : Prop := omitted
 def is_smooth (k : ℕ∞) (f : E →. E') : Prop := omitted --∀x, is_smooth_at k f x
 
@@ -138,6 +155,9 @@ lemma is_smooth_empty (k : ℕ∞) (E E' : euclidean_space) : is_smooth k (pfun.
 
 /- every smooth map is continuous -/
 lemma is_continuous_of_is_smooth {f : E →. E'} (hf : is_smooth k f) : f.is_continuous := 
+omitted
+
+lemma is_smooth_of_le {f : E →. E'} (hf : is_smooth k f) (hk : k' ≤ k) : is_smooth k' f := 
 omitted
 
 /- a partial homeomorphism -/
@@ -152,6 +172,8 @@ variables {X : Top} {Y : Top} {Z : Top}
 def restrict_phomeo (p : set X) : X.restrict p ≃ₜ. X :=
 ⟨pequiv.subtype_pequiv p, omitted, omitted⟩
 
+protected def rfl : X ≃ₜ. X := ⟨pequiv.rfl, is_continuous_id, is_continuous_id⟩
+protected def refl (X) : X ≃ₜ. X := phomeo.rfl
 def symm (f : X ≃ₜ. Y) : Y ≃ₜ. X := ⟨f.to_pequiv.symm, f.continuous_inv_fun, f.continuous_to_fun⟩
 def trans (f : X ≃ₜ. Y) (g : Y ≃ₜ. Z) : X ≃ₜ. Z := ⟨f.to_pequiv.trans g.to_pequiv, omitted, omitted⟩
 
