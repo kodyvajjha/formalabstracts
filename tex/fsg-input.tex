@@ -1,4 +1,55 @@
-\section{Affine varieties}
+\section{Background} \label{section-background}
+
+This article assumes basic facts about $K$-algebras (such as tensor
+products, ideals, radical ideals),
+topological spaces (connectedness), and category theory.
+
+Building on those foundations, the article gives a complete
+specification of all finite simple groups.
+The definition of a finite simple group of Lie type appears in
+Definition \ref{def:fsg-Lie}.
+Unexplained notation from this section will be precisely
+defined later.
+
+\begin{theorem}\label{thm:classify}
+  Every finite simple group is isomorphic to 
+\begin{enumerate}
+\item a cyclic group of prime order,
+\item an alternating group $\Alt_n$ on $n$ letters for some $n\ge 5$,
+\item a finite simple group of Lie type, or
+\item one of the 26 sporadic groups.
+\end{enumerate}
+Every group these four families is a finite
+simple group.
+\end{theorem}
+
+  Finite simple groups of Lie type are classified by certain data of
+  the form $(D_r,\rho,p,e)$ (written as ${}^{\rho}D_r(p^e)$), where
+  $D_r$ is a connected Dynkin diagram with $r$ nodes, $\rho$ is an
+  arrow-forgetful isomorphism of the Dynkin diagram, $p$ is a prime
+  number, and $e \in \ring{Q}$ is an exponent.  The explicit list of
+  such tuples appears in Definition ~\ref{def:st}.
+
+
+\begin{theorem}\label{thm:duplicate}
+  If two finite simple groups on the
+  list of Theorem~\ref{thm:classify} are isomorphic, then that
+  isomorphism is one of the following duplicates.
+  \begin{itemize}
+  \item $\Alt_5 \simeq A_1(2^2) \simeq A_1(5)$.
+  \item $\Alt_6 \simeq A_1(3^2)$.
+  \item $\Alt_8 \simeq A_3(2)$.
+  \item $A_1(7) \simeq A_2(2)$.
+  \item $B_3(3) \simeq {}^2A_3(2)$.
+  \item $B_r(2^m) \simeq C_r(2^m)$.
+  \item Any two finite simple groups of Lie type with
+    isomorphic classifying data $(D,\rho,p,e)$ are isomorphic.
+  \end{itemize}
+\end{theorem}
+
+See \cite{wilson2009finite}.  
+
+\section{Affine varieties}\label{section-affine-varieties}
 
 
 The material on finite groups of Lie type follows Carter
@@ -55,7 +106,9 @@ affine varieties given by
 \[
 K[X \times Y] = K[X]\otimes K[Y].
 \]
-This product satisfies the universal property of a product.
+This product satisfies the universal property of a product.  We warn
+that Zariski topology on the product is not the usual product topology
+in the theory of topological spaces.
 
 A morphism $f:X \to Y$ of affine varieties is defined to be a
 $K$-algebra homomorphism $f^*:K[Y]\to K[X]$ (called the pull-back of
@@ -76,13 +129,24 @@ object; for each affine variety there is a unique morphism $f:X\to 1$.
 Specifically, $f^*:K\to K[X]$ is the structure map of the $K$-algebra
 $K[X]$.
 
+%An affine variety $X$ is said to be irreducible if $K[X]$ is an
+%integral domain.  (Equivalently, $X$ is irreducible if the spectrum
+%$X(K)$ cannot be written as the union of two proper closed subsets).
+%If $X$ is irreducible, the quotient field $K(X)$ of $K[X]$ is called
+%the function field of $X$.  In this case, $K(X)$ has finite
+%transcendence degree over $K$, and we say that the dimension of $X$ is
+%that degree.
 
-\section{Affine algebraic groups}
+\section{Affine algebraic groups}\label{section-affine-algebraic-groups}
 
 Henceforth we refer to a group in the usual sense as abstract groups
 to distinguish them from {\it affine groups}, which are group objects
 in the category of affine categories, which are described in this
 section.
+
+We fix an algebraically closed field $K$.  The objects from the
+categories of affine varieties and affine groups are all over this
+field $K$.
 
 An affine group over $K$ is defined as an affine variety
 $G$, together with morphisms $\mu:G \times G \to G$ (called
@@ -91,12 +155,12 @@ element) such that $\mu$ and $i$ satisfy the usual axioms of a
 group. More precisely, we mean the axioms of a group in the category
 of affine algebraic groups.  For example, the right inverse property
 is that this diagram commutes:
-\[
-\begin{tikzcd}
-  G \arrow{r}{\op{id},i} \arrow{d} & G\times G \arrow{d}{\mu} \\
-  1 \arrow{r}{e} & G
-  \end{tikzcd}
-\]
+% \[
+% \begin{tikzcd}
+%   G \arrow{r}{\op{id},i} \arrow{d} & G\times G \arrow{d}{\mu} \\
+%   1 \arrow{r}{e} & G
+%   \end{tikzcd}
+% \]
 The other axioms are obtained by a similar translation of the group
 axioms into categorical language.  The axioms are written explicitly
 in the Wiki article on group object \cite{group-object}.  (These
@@ -114,14 +178,84 @@ make $G(K)$ into a group.
 A morphism $f:G\to G'$ of affine algebraic groups is a morphism
 of affine varieties such that $f(x y) = f(x) f(y)$.  That is,
 this diagram commutes:
-\[
-\begin{tikzcd}
-  G \times G \arrow{r}{\mu} \arrow{d}{(f,f)} & G \arrow{d}{f} \\
-  G' \times G' \arrow{r}{\mu'} & G'
-  \end{tikzcd}
-\]
+% \[
+% \begin{tikzcd}
+%   G \times G \arrow{r}{\mu} \arrow{d}{(f,f)} & G \arrow{d}{f} \\
+%   G' \times G' \arrow{r}{\mu'} & G'
+%   \end{tikzcd}
+% \]
+Unless stated otherwise, a morphism will mean a group homomorphism of
+affine algebraic groups.
 
 The point $1$ has the structure of an affine group.
+
+If $G$ and $G'$ are affine groups, then $G \times G'$ also
+carries the structure of an affine group in a natural way.
+
+A closed subgroup $H$ of an affine group $G$ is a closed subvariety
+that contains the neutral element and such that the inverse and
+multiplication on $G$ restrict to $H$.  Then $H$ has the structure of
+an affine group.  In what follows, being {\it closed} refers to the
+Zariski topology, but never to the algebraic sense in which a binary
+operation can be closed.
+
+The kernel of a morphism $\psi:G\to H$ is the closed subset given by
+the preimage of $1\in H$.  The kernel of a morphism $\psi:G\to H$ is a
+closed subgroup of $G$.  We define a normal subgroup of $G$ to be any
+closed subgroup obtained as a kernel of a morphism.
+
+An abelian group is an affine group such that
+\[
+G \times G \to G \times G \to^\mu G
+\]
+coincides with $\mu$, where the first morphism swaps the factors.
+
+A solvable group $G$ is defined inductively as an affine group that is
+abelian, or as an affine group $G$ that admits a morphism $\psi:G\to
+H$, where both $H$ and the kernel of $\psi$ are solvable.
+
+An affine group $G$ is connected, if it is connected as a topological
+space.
+A Borel subgroup of $G$ is a maximal closed connected solvable
+subgroup of $G$.
+
+Let $G$ be an affine group.  There exists an abelian affine group $A$
+(the abelianization of $G$) and morphism $G\to A$ with the following
+universal property: if $A'$ is any affine abelian group, and morphism
+$\psi: G \to A'$, there exists a unique $A\to A'$ such that $\psi$ is
+equal to $G\to A \to A'$.  The kernel of $\phi:G\to A$ is the
+{\it closed derived} subgroup of $G$.   The kernel does not depend
+on the choice of $(A,\phi)$.
+
+%Let $G$ be an affine group.  The set of kernels of all morphisms
+%$\psi:G\to A$ with abelian target groups $A$ is partially ordered by
+%inclusion. This set of kernels has a unique maximal element $G'$,
+%called the {\it closed derived} subgroup of $G$.
+
+Let $G$ be an affine group and let $H$ be a subgroup of $G$.  A closed
+subgroup $C$ of $G$ {\it centralizes} $H$ if the morphism of varieties
+\[
+C \times H \to G, \quad (c,h)\to c h c^{-1}
+\]
+coincides with the inclusion $H\to G$.  Among all closed subgroups $C$
+centralizing $G$, there exists a unique maximal element (under the
+ordering by inclusion of closed subsets of $G$).  This is the
+centralizer $C_G(H)$ of $H$ in $G$.  The center $Z = Z_G$ of $G$ is
+the centralizer in $G$ of $G$:
+\[
+Z = C_G(G).
+\]
+
+We say that a closed subgroup $N$ of $G$ normalizes another closed
+subgroup $H$ if the image of the morphism of varieties
+\[
+N \times H \to G,\quad (n,h) \mapsto n h n^{-1}
+\]
+lies in $H$.  When $N$ normalizes $H$, there is an action of
+$N$ on $H$ given by $(n,h) \mapsto n h n^{-1}$.
+
+
+\section{The general linear group}\label{section-general-linear-group}
 
 The most important example of an affine algebraic group for us is
 $GL(n)$ over $K$.  Let $R=K[x_0,x_{ij}:i=1,\ldots,n;j=1,\ldots,n]$ be
@@ -152,8 +286,9 @@ In fact, the element $x_0$ appears exactly for the purpose of
 expressing the non-zero determinant condition as a polynomial
 equation.
 
-If $G$ and $G'$ are affine groups, then $G \times G'$ also
-carries the structure of an affine group in a natural way.
+
+\subsection{tori}\label{subsection-tori}
+
 
 When $n=1$, we also write $\Gm = GL(1)$.
 The coordinate ring is $K[t,u]/(t u - 1)\simeq K[t,t^{-1}]$.
@@ -166,110 +301,48 @@ K[\Gm^r]=K[\Gm]\otimes\cdots\otimes K[\Gm]
 \]
 
 
+A closed subgroup $T$ of $G$ is a {\it maximal torus} if it is a
+subgroup isomorphic to $\Gm^r$, with $r\in\ring{N}$ maximal.  We call
+$r$ the rank of $G$.  A maximal torus exists in every affine group.
 
-A closed subgroup $H$ of an affine group $G$ is a closed subvariety
-that contains the neutral element and such that the inverse and
-multiplication on $G$ restrict to $H$.  Then $H$ has the structure of
-an affine group.  In what follows, being {\it closed} refers to the
-Zariski topology and to the algebraic sense in which a binary
-operation can be closed.
-
-We give the definition of the commutator subgroup $[A,B]$ for two
-(Zariski) closed subgroups of $G$.  (The definition is a bit more
-involved in the category of affine groups than in the category of
-abstract groups.)  The commutator for elements $a,b$ of an abstract
-group is $[a,b] = a^{-1}b^{-1} a b$.  We write this as a morphism
-$A\times B \to G$, $(a,b)\to [a,b]$, where we now no longer think
-of $a$ and $b$ as elements of the groups $A$ and $B$ but as
-tracers that display the composition of morphisms in the category of
-affine groups:
-\begin{align*}
-  &A \times B &&\to A\times A \times B \times B
-  &&\to A \times B \times A\times B
-  &&\to A \times B \times A\times B  
-  &&\to G\\
-&(a,b) &&\mapsto (a,a,b,b) &&\mapsto (a,b,a,b) &&\mapsto (a^{-1},b^{-1},a,b) &&\mapsto [a,b].
-\end{align*}
-The first arrow is a pair of diagonal maps, followed by a swap, then
-a pair of inverses, then a composition of multiplications (in any
-order).
-
-The commutator subgroup $[A,B]$ is the group {\it generated} by
-commutators.
-\[
-(A\times B)^k \to G,\quad (a_1,b_1,\ldots,a_k,b_k)\to [a_1,b_1]\cdots[a_k,b_k]
-\]
-Further details appear in \cite{humphreys2012linear}, including
-conditions that ensure that the commutator subgroup is (Zariski)
-closed in $G$.
-
-The commutator of two normal subgroups is again normal.  The
-commutator when one group $A$ or $B$ is connected is again connected.
-
-An affine variety $X$ is said to be irreducible if $K[X]$ is an
-integral domain.  (Equivalently, $X$ is irreducible if the spectrum
-$X(K)$ cannot be written as the union of two proper closed subsets).
-If $X$ is irreducible, the quotient field $K(X)$ of $K[X]$ is called
-the function field of $X$.  In this case, $K(X)$ has finite
-transcendence degree over $K$, and we say that the dimension of $X$ is
-that degree.
-
-The group affine group $\Gm^r$ is irreducible, and its
-dimension is $r$.
-
-
-An affine group $G$ is connected (as a topological space) if and only
-if it is irreducible.  A connected affine group $G$ is nilpotent if
-\[
-G = G_1 \supset G_2 \supset \cdots \supset G_{c+1}=1,
-\]
-where $G_{i+1} = [G_i,G]$.  Each $G_i$ is a normal closed connected subgroup
-of $G$.
-A connected affine group $G$ is solvable if
-\[
-G = G^{(0)} \supset G^{(d)} = 1,
-\]
-where $G^{(i+1)} = [G^{(i)},G^{(i)}]$.  Each $G^{(i)}$ is a normal closed
-connected subgroup of $G$. We also write $G' = G^{(1)}$.
-
-A Borel $B$ subgroup of $G$ is a maximal closed connected solvable
-subgroup of $G$.  Borel subgroups always exist and all Borel subgroups
-are conjugate to one another.
-
-A maximal torus of $G$ is closed subgroup of that is isomorphic to
-$\Gm^r$, with $r$ as large as possible.  We call $r$ the rank
-of $G$.  A maximal torus exists and all maximal tori are conjugate to
-one another.  Each maximal torus is a closed subgroup of some Borel
-subgroup.
 
 Let $T$ be a maximal torus of $G$.  The character group of $T$
 is the set
 \[
 X^*(T) = \op{Hom}(T,\Gm).
 \]
-It has the structure of (an abstract) abelian group as follows.  $T$
-is isomorphic to $\Gm^r$ for some $r$ and the abelian group
-structure comes by transport of structure along that isomorphism.
-\begin{align*}
-\ring{Z}^r &\simeq
-\op{Hom}_{K-alg}(K[t,t^{-1}],K[t_1,t_1^{-1},\ldots,t_r,t_r^{-1}])
-= \op{Hom}(\Gm^r,\Gm),\\
-(m_1,\ldots,m_r)&\mapsto (t\mapsto t_1^{m_1}\cdots t_r^{m_r}).
-\end{align*}
-In particular, $X^*(T)$ is a free abelian group of rank $r$.
+It has the structure of (an abstract) abelian group as follows
+by multiplication in the target:
+if $\lambda_1,\lambda_2\in X^*(T)$, then $(\lambda_1\lambda_2)(t) =
+\lambda_1(t)\lambda_2(t)$, for all $t\in T$.
+%$T$
+%is isomorphic to $\Gm^r$ for some $r$ and the abelian group
+%structure comes by transport of structure along that isomorphism.
+%\begin{align*}
+%\ring{Z}^r &\simeq
+%\op{Hom}_{K-alg}(K[t,t^{-1}],K[t_1,t_1^{-1},\ldots,t_r,t_r^{-1}])
+%= \op{Hom}(\Gm^r,\Gm),\\
+%(m_1,\ldots,m_r)&\mapsto (t\mapsto t_1^{m_1}\cdots t_r^{m_r}).
+%\end{align*}
+%In particular,
+$X^*(T)$ is a free abelian group of rank $r$,
+when $T$ is isomorphic to $\Gm^r$.
 
 The cocharacter group of $T$ is
 \[
 X_*(T) = \op{Hom}(\Gm,T),
 \]
-which also has the structure of a free abelian group of rank $r$
-by transport of structure:
-\begin{align*}
-\ring{Z}^r &\simeq
-\op{Hom}_{K-alg}(K[t_1,t_1^{-1},\ldots,t_r,t_r^{-1}],K[t,t^{-1}])
-= \op{Hom}(\Gm,\Gm^r),\\
-(m_1,\ldots,m_r)&\mapsto (t_i\mapsto t^{m_i}).
-\end{align*}
+It too has the structure of an abstract abelian group
+with multiplication in the target.
+%which also has the structure of a free abelian group of rank $r$
+%by transport of structure:
+%\begin{align*}
+%\ring{Z}^r &\simeq
+%\op{Hom}_{K-alg}(K[t_1,t_1^{-1},\ldots,t_r,t_r^{-1}],K[t,t^{-1}])
+%= \op{Hom}(\Gm,\Gm^r),\\
+%(m_1,\ldots,m_r)&\mapsto (t_i\mapsto t^{m_i}).
+%\end{align*}
+$X_*(T)$ is a free abelian group of rank $r$.
 
 There is a nondegenerate bilinear pairing
 \[
@@ -282,243 +355,164 @@ given by the composition
 \]
 
 
-An affine group $U$ is unipotent if it is isomorphic to a closed
-subgroup of the strictly upper triangular subgroup of $GL(n)$ for some
-$n$.  (This is the closed subgroup of $GL(n)$ given by $x_{ij}=0$ for
-all $i>j$, and $x_{ii}=x_0 = 1$.)
+%An affine group $U$ is unipotent if it is isomorphic to a closed
+%subgroup of the strictly upper triangular subgroup of $GL(n)$ for some
+%$n$.  (This is the closed subgroup of $GL(n)$ given by $x_{ij}=0$ for
+%all $i>j$, and $x_{ii}=x_0 = 1$.)
 
-An example of a unipotent subgroup is the additive group $\Ga$.
-Its coordinate ring is defined as $K[\Ga] = K[x]$, a polynomial
-ring in one variable.  The group structure is uniquely determined by
-the conditions:
+%An example of a unipotent subgroup is the additive group $\Ga$.
+
+\subsection{additive group}\label{subsection-additive-group}
+
+The additive group $\Ga$ is the affine group whose coordinate ring is
+a polynomial ring in one variable $K[\Ga] = K[x]$.  The group
+structure is uniquely determined by the conditions:
 \begin{align*}
   e^*(x)=0,\quad i^*(x)= -x,\quad
   \mu^*(x) = x\otimes 1 + 1\otimes x\in K[x]\otimes K[x].
 \end{align*}
-$\Ga$ is isomorphic to the group $U$ of strictly upper
-triangular matrices of $GL(2)$ through
-\[
-K[U]= K[x_0,x_{ij}]/(x_0=1,x_{11}=x_{22}=1,x_{21}=0)
-\simeq K[x_{12}] \simeq K[x].
-\]
-The group $\Gm$ acts as automorphisms of $\Ga$ by the
-morphism
+%$\Ga$ is isomorphic to the group $U$ of strictly upper
+%triangular matrices of $GL(2)$ through
+%\[
+%K[U]= K[x_0,x_{ij}]/(x_0=1,x_{11}=x_{22}=1,x_{21}=0)
+%\simeq K[x_{12}] \simeq K[x].
+%\]
+The group $\Gm$ acts as automorphisms of $\Ga$ by the morphism
 \[
 \Gm\times \Ga\to \Ga,\quad K[x]\to K[t,t^{-1}]\otimes K[x],
 \quad x\mapsto t\otimes x.
 \]
 
-A connected affine group $G$ is reductive the only normal closed
-connected unipotent subgroup of $G$ is $1$.  A connected affine group
-$G$ is semisimple if $G\ne 1$ and if the only normal closed connected
-solvable subgroup $G$ is $1$.  A unipotent subgroup is solvable, hence
-a semisimple group is also reductive.  An affine group is $G$ is
-almost simple if it has no proper normal closed connected subgroup.
-An almost simple group is connected and semisimple.
+\section{structure theory for almost simple groups}
 
-Let $G$ be a connected reductive group, and let $T$ be a maximal torus
-of $G$.  The torus $T$ is a closed subgroup of some Borel subgroup $B$
-of $G$, giving $T\subset B\subset G$.  There is a unique Borel
-subgroup $B^-$ such that $B\cap B^- = T$.  The derived subgroups of
-$B' = U$ and $B^{-'} = U'$ are unipotent subgroups of $G$.
+An affine group is $G$ is {\it almost simple} if it has no proper normal
+closed connected subgroup.  An almost simple group is connected
+(because the connected component of the identity of any affine group
+is a normal closed connected subgroup).
 
-If $X$ is a subgroup of $U$ or $U^-$ that is normalized by $T$ and
-that is isomorphic (by $f$) to $\Ga$, then there exists a
+We fix the context in the section.  Let $G$ be almost simple, let $B$
+be a Borel subgroup, let $U = B'$ be its closed derived subgroup, and
+let $T$ be a maximal torus of $G$ that is a subgroup of $B$.
+
+\subsection{positive roots}
+
+Let $f:X\to \Ga$ be an isomorphism from a
+closed subgroup $X$ of $U$ to $\Ga$.  Assume that $X$ is normalized by
+$T$. Then $T$ acts on $X$ by
+\[
+T \times X \to X,\quad  (t,x) \mapsto t x t^{-1}.
+\]
+
+Then there exists a
 unique element $\lambda\in X^*(T)$ such that $T$ acts on $X$ by
 \[
 T\times X\to^{\lambda,f} \Gm \times \Ga
 \to \Ga \to^{f^{-1}} X,
 \]
-using the action of $\Gm$ on $\Ga$ given above.  The
-element $\lambda\in X^*(T)$ attached to $X$ is called a root, and $X =
-X_\lambda$ is called a root space.  The set $\Phi$ of roots is a
-finite subset of $X^*(T)$ and is independent of the choice of Borel
-subgroup $B$.  If $\alpha\in \Phi$ then $-\alpha\in \Phi$.
+using the action of $\Gm$ on $\Ga$ given above.  The element
+$\lambda\in X^*(T)$ attached to $X$ is called a positive root with
+respect to $B$ and $T$, and $X = X_\lambda$ is called a positive root
+space.  The set $\Phi^+$ of positive roots is a finite subset of
+$X^*(T)$.
 
-
-%\begin{example}
-%The affine group $SL(2)$ is the closed subgroup of $GL(2)$ given by
-%$\det(x_{ij})=1$.  The group $SL(2)$ has rank 1.  A maximal torus is
-%given by the diagonal subgroup
-%\[
-%d(t) = \begin{pmatrix}t &0 \\ 0 & t^{-1} \end{pmatrix}
-%\]
-%The character lattice of $SL(2)$ is isomorphic to $\ring{Z}$ with
-%$\lambda_n(d(t)) = t^n$, for $n\in\ring{Z}$. There are two roots $\Phi
-%= \{\pm\alpha\}$, identified with $\pm2\in\ring{Z}$.  The cocharacter
-%lattice is isomorphic to $\ring{Z}$ with $\mu_n(t) = d(t^n)$, for
-%$n\in\ring{Z}$.  We define set $\Phi^\vee$ of the coroots $\pm\alpha^\vee$
-%of $SL(2)$ to be the two cocharacters identified with $\pm1\in Z\simeq
-%X_*(T)$.  Under the pairing $\langle\alpha,\alpha^\vee\rangle=2$.
-%\end{example}
-
-Now continue with a reductive group $G$ with Borel subgroup $B$
-containing maximal torus $T$.  Let $\alpha\in\Phi$, let
-$T_\alpha\subset T$ be the kernel of $\alpha: T\to \Gm$, and
-let $M_\alpha$ be the centralizer of $T_\alpha$ with derived group
-$M_\alpha'$.  The affine group $M_\alpha'$ is semisimple of rank 1
-with maximal torus $S \subset T \cap M_\alpha'$.  There exists a
-unique cocharacter $\alpha^\vee\in X_*(T)$ factoring through $S$
+Let $\alpha\in\Phi^+$, let
+$T_\alpha\subset T$ be the kernel of $\alpha: T\to \Gm$, and let
+$M_\alpha$ be the centralizer of $T_\alpha$ with derived group
+$M_\alpha'$.  The affine group $M_\alpha'$ is almost simple with
+maximal torus $S \subset T \cap M_\alpha'$.  There exists a unique
+cocharacter $\alpha^\vee\in X_*(T)$ factoring through $S$
 \[
 \alpha^\vee:\Gm\to S \to T
 \]
 and such that $\langle \alpha,\alpha^\vee\rangle = 2$.  Running over
-$\alpha\in \Phi$, the set of all $\alpha^\vee$ so obtained is called the
-set of coroots $\Phi^\vee\subset X_*(T)$.
+$\alpha\in \Phi^+$, the set of all $\alpha^\vee$ so obtained is called the
+set of positive coroots $\Phi^{\vee+}\subset X_*(T)$.
 
-%There exists a
-%homomorphism $\phi:SL(2)\to M_\alpha'$, sending the (diagonal)
-%maximal torus $S$ of $SL(2)$ into $M_\alpha'\cap T$ and by
-%composition $S \to T \to^\alpha \Gm$, sending
-%$\pm\alpha\mapsto\pm\alpha \in \Phi_{SL(2)}$.  Define
-%$\pm\alpha^\vee\in X_*(T)$ to be the cocharacters obtained by
-%composition
-%\[
-%\pm\alpha^\vee \in X_*(S) \to X_*(T),\quad \Gm\to S \to^\phi T.
-%\]
 
-The reductive group $G$ is semisimple iff the subgroup $\ring{Z}\Phi$
-generated by $\Phi$ in $X^*(T)$ has finite index in $X^*(T)$.  This
-occurs iff the subgroup $\ring{Z}\Phi^\vee$ has finite index in $X_*(T)$.
-We say that a semisimple group is simply connected in the case of
-equality: $\ring{Z}\Phi^\vee = X_*(T)$.
+\subsection{simple roots and the Dynkin diagram}
 
-\section{Classification of Almost Simple Affine Groups}
+There exists a unique subset $\Delta\subset \Phi^+$ such that every
+positive root is a linear combination of $\Delta$ with nonnegative
+coefficients.  That is, every positive root is in the cone spaned by
+the simple positive roots.  The set $\Delta$ is called the set of
+simple roots.  (The set $\Delta$ depends on the choices $T\subset
+B\subset G$.)
 
-We say that $\lambda\in\Phi$ is positive if the root space $X_\lambda$
-is a closed subgroup of $U$ (and negative otherwise).  Let $\ell$ be
-the rank of $\ring{Z}\Phi$.  There exists a set $\Delta$ of
-cardinality $\ell$ of positive roots (called the set of simple
-positive roots) such that every positive root is a linear combination
-of them with nonnegative coefficients.  That is, every positive root is
-in the cone spaned by the simple positive roots.
-(The set $\Delta$ depends on the choices $T\subset B\subset G$.)
 
-Let $A_{ij} = \langle \alpha_j,\alpha_i^\vee\rangle\in\ring{Z}$, for
-some enumeration $\alpha_i$ of $\Delta$.
-This matrix (called the Cartan matrix) has the following properties.
+\section{classification data}
+
+In this subsection, we drop the earlier context.
+Let $\Delta$ be any finite set.
+
+
+Define the {\it Cartan matrix} to be a matrix $A:\Delta\times \Delta\to\ring{Z}$
+that has the following properties.
 \begin{itemize}
-\item $A_{ij}\in \{2,0,-1,-2,-3\}$.
-\item $A_{ii}=2$.
-\item $A_{ij}\le 0$ for all $i\ne j$.
-\item $A_{ij}=0$ iff $A_{ji}=0$.
-\item If $A_{ij}<-1$, then $A_{ji}=-1$.
+\item $A(\alpha,\beta)\in \{2,0,-1,-2,-3\}$.
+\item $A(\alpha,\alpha)=2$.
+\item $A(\alpha,\beta)\le 0$ for all $i\ne j$.
+\item $A(\alpha,\beta)=0$ iff $A(\beta,\alpha)=0$.
+\item If $A(\alpha,\beta)<-1$, then $A(\beta,\alpha)=-1$.
   \end{itemize}
 
-The Dynkin diagram of $G$ is a graph (with no loops and no multiple
-joins) with $\ell$ nodes, indexed by $\Delta$, which we now describe.
-Edges of the graph are optionally decorated with an integer $2$ or $3$
-and an ordering of the endpoints (an arrow from node $\alpha$ to node
-$\beta$).  Two distinct nodes are connected by an edge iff $A_{ij}\ne
-0$.  The edge is not decorated if $A_{ij}=A_{ji}=-1$.  But if
-$A_{ji}\ne -1,0$, then the edge is decorated with the integer
-$-A_{ji}$ and an arrow from $\alpha_i$ to $\alpha_j$.  The integer $2$
-or $3$ is often depicted as a double or triple bond in the graph.
+The Dynkin diagram of $(\Delta,A)$ is a graph (with no loops and no
+multiple joins) with $r$ nodes, indexed by $\Delta$, which we now
+describe.  Edges of the graph are optionally decorated with an integer
+$2$ or $3$ and an ordering of the endpoints (an arrow from node
+$\alpha$ to node $\beta$).  Two distinct nodes are connected by an
+edge iff $A(\alpha,\beta)\ne 0$.  The edge is not decorated if
+$A(\alpha,\beta)=A(\beta,\alpha)=-1$.  But if $A(\beta,\alpha)\ne
+-1,0$, then the edge is decorated with the integer $-A(\beta,\alpha)$
+and an arrow from $\alpha$ to $\beta$.  The integer $2$ or $3$ is
+often depicted as a double or triple bond in the graph.
 
-A connected semisimple group $G$ is almost simple if and only if
-its Dynkin diagram is a connected graph.
+An isomorphism of Dynkin diagrams is a bijection $f:\Delta\to\Delta$
+that preserves edges and the labeling of on edges.
 
-The connected Dynkin diagrams of almost simple groups $G$ over $K$
-follow a well known classification.
+An arrow-forgetful automorphism $\rho$ of a Dynkin diagram is defined
+to be a graph isomorphism of the underlying graph of the Dynkin diagram
+except that it might not respect the optional arrows that label some edges.
+$\rho$ is required to respect all the optional natural number labels.
 
-%(give abstract root system.)
 
-The classification of almost simple simply connected groups
-can be stated as follows.
-Let $D$ be a connected Dynkin diagram appearing in the list.
-
-Classification Theorem: There exists an almost simple simply connected
-group $G$ over $K$ such that the construction of
-$(X^*(T),\Phi,X_*(T),\Phi^\vee)$ gives a root system $\Phi$ whose
-Dynkin diagram is isomorphic to $D$.  If $G,G'$ are two almost simple
-simply connected groups over $K$ that both have Dynkin diagram
-isomorphic to $D$, then $G$ and $G'$ are isomorphic as affine groups.
-
-There exists a similar classification for all reductive groups by all
-four tuples as above, but this will not be needed.
-
-A linear algebraic group $G$ is an affine group that is isomorphic to
-a closed subgroup of $GL(n)$ for some $n$. It is known that every
-affine algebraic group is linear (see Humphreys's texbook
-\cite{humphreys2012linear}).
-
-\section{Finite groups of Lie Type}
-
-Now let $K$ be an algebraically closed field of characteristic $p$.
-
-Let $q = p^e$ for some $e\ge 1$.  Let $F_q:K\to K$ be the
-Frobenius map $a\mapsto a^q$. It is an automorphism of the field $K$.
-
-There is a homomorphism $F_q:GL(n)\to GL(n)$ given on coordinate rings
-by
+A classification datum consists of a tuple
 \[
-F_q^*(x_{ij}) = x_{ij}^q,\quad F_q^*(x_0) = x_0^q.
+(D,\rho,p,e)
 \]
-Let $G$ be a linear algebraic group over $K$.  A standard Frobenius
-map $F:G\to G$ is a homomorphism obtained from an injective
-homomorphism $\phi:G\to GL(n)$ such that $\phi\circ F = F_q \circ
-\phi$.  A Frobenius map $F:G\to G$ is a homomorphism such that some
-power of $F$ is a standard Frobenius map.
+where $D$ is a Dynkin diagram, $\rho$ is an arrow-forgetful
+automorphism of the diagram $p$ is a prime number, and $e$ is a
+rational number.  Not all such tuples appear in the classification
+theorem.  See definition
+\label{def:st}.
 
-%We have seen that the elements of $GL(n,K)$ are in natural
-%correspondence with matrices $(a_{ij})$ in $K$ with nonzero
-%determinant.  $GL(n,K)$ is a group and
-%\[
-%F_q:GL(n,K)\to GL(n,K),\quad (a_{ij})\mapsto (a_{ij}^q)
-%\]
-%is a homomorphism.  The kernel $GL(n,K)^{F_q}$ of $F_q$ is the finite
-%group $GL(n,\ring{F}_q)$, where $\ring{F}_q$ is the fixed field
-%$K^{F_q}$.
-
-Let $G$ be a reductive group with Frobenius map $F:G\to G$.  There
-exists a maximal torus $T$ and Borel subgroup $B$ of $G$ such that
-$T\subset B\subset G$, and such that $F(T)=T$ and $F(B)=B$.  Fix such
-a pair $(T,B)$.  The Frobenius $F$ acts on $X_*(T)$ by
+In particular, $D$ must be only of the connected Dynkin diagrams that
+appear in the Cartan classification of Lie algebras over $\ring{C}$.
+By that classification, there are diagrams
 \[
-(F(\lambda)) t = \lambda(F(t)),\quad \lambda\in X^*(T),\quad t\in T(K).
+D = A_r,~ B_r,~ C_r,~ D_r,~ E_6,~ E_7,~ E_8,~ G_2,~ F_4.
 \]
-
-Let $X_{\ring{R}} = X_*(T)\otimes_\ring{Z} \ring{R}$.  The action of
-$F$ on the first factor $X_*(T)$ gives a linear action of $F$ on
-$X_{\ring{R}}$.  There is a positive real number $q > 1$ such that $q$
-is the absolute value of all the eigenvalues of $F$ on $X_{\ring{R}}$.
-Then $q = p^e$ for some positive rational number $e$, where $p$ is the
-characteristic of $K$.
-
-
-The Frobenius $F$ permutes the set of root spaces $X_\lambda$, and
-there is a unique permutation $\rho:\Phi\to\Phi$ such that
-$F(X_\lambda) = X_{\rho\lambda}$.  This permutation $\rho$ restricts
-to give a permutation $\rho:\Delta\to\Delta$ of positive simple roots.
-This uniquely determines an automorphism $\rho$ of the Dynkin diagram
-that respects the integer labels on edges, but that does not always
-respect the direction of the arrows labels on edges.  There is a
-compatibility constraint that if an edge carries a label $p =2,3$,
-then the characteristic of $K$ is $p$.
-
-
-Let $G$ be almost simple and simply connected over $K$.  We have seen
-that it is classified by its Dynkin diagram.  A finite group of Lie
-type $G^F$ obtained from $G$ is classified by two additional
-ingredients: the order of $\rho$ on the Dynkin diagram, and the number
-$q = p^e$.
+as shown in Figure \XX{insert}.
 
 The automorphism $\rho$ of the Dynkin diagram is determined by its
 order, and the symbol for the Dynkin diagram is decorated with a
 prepended superscript indicating the order.  If $\rho=1$ the
-superscript is omitted.  The data $(D,\rho,p^e)$ is thus written
-${}^\rho D(q)$ or $D(q)$.  Here is the classification.  $p$ is any
-prime. $e\in\ring{N}$, with $e\ge 1$.
+superscript is omitted.  The tuple $(D,\rho,p,e)$ is thus written
+${}^\rho D(q)$ or $D(q)$, where $q=p^e$.  Here is the classification.
+$p$ is any prime. $e\in\ring{N}$, with $e\ge 1$.  The excluded values
+come from \cite{Wiki}.
 
+\begin{definition}\label{def:st}
+  A tuple $(D,\rho,p,e)$ has {\it simple type}
+  if it consists of one of the following cases.
 \begin{itemize}
-\item $A_r(p^e)$, where $r\ge 1$.
-\item $B_r(p^e)$, where $r\ge 2$.
+\item $A_r(p^e)$, where $r\ge 1$. If $r=1$, then $p^e>3$.
+\item $B_r(p^e)$, where $r\ge 2$. If $r=2$, then $p^e > 2$.
 \item $C_r(p^e)$, where $r\ge 3$.
 \item $D_r(p^e)$, where $r\ge 4$
-\item ${}^2A_r(p^e)$, where $r\ge 1$.
+\item ${}^2A_r(p^e)$, where $r\ge 2$. If $r=2$, then $p^e > 2$.
 \item ${}^2D_r(p^e)$, where $r\ge 4$.
 \item ${}^3D_4(p^e)$.
-\item $G_2(p^e)$.
+\item $G_2(p^e)$, where $p^e > 2$.
 \item $F_4(p^e)$.
 \item $E_6(p^e)$.
 \item ${}^2E_6(p^e)$.
@@ -528,24 +522,187 @@ prime. $e\in\ring{N}$, with $e\ge 1$.
 \item ${}^2G_2(3^{f+1/2})$, where $f\in\ring{N}$.
 \item ${}^2F_4(2^{f+1/2})$, where $f\in\ring{N}$.
 \end{itemize}
+\end{definition}
+
+The last three cases are noteworthy.  If the automorphism $\rho$ of
+$D$ is nontrivial, and if some edge of $D$ carries a label $a =2,3$,
+then $p=a$.
+
+
+\section{Frobenius}
+
+Let $K$, $G$, $B$, $T$ be given as in the previous section.  We assume
+in this section that $K$ is an algebraically closed field of positive
+characteristic $p$.
+
+Let $q = p^k$ for some $k\ge 1$.
+
+There is a {\it Frobenius} morphism $F_q:GL(n)\to GL(n)$ given on
+coordinate rings by
+\[
+F_q^*(x_{ij}) = x_{ij}^q,\quad F_q^*(x_0) = x_0^q.
+\]
+Let $G$ be a linear algebraic group over $K$.  {\it Standard
+  Frobenius} data for $G$ consists of data $(F,n,\phi,k)$, where
+$F:G\to G$ is a morphism, $\phi:G\to GL(n)$ is an isomorphism of $G$
+onto a closed subgroup of $GL(n)$ that intertwines:
+\[
+\phi\circ F = F_q \circ \phi
+\]
+where $q= p^k$.  {\it Frobenius data} $(F,n,\phi,k,j)$ consists of a
+morphism $F : G\to G$, where $(F^j,n,\phi,k)$ is a standard Frobenius.
+Here $F^j = F\circ F\cdots$ ($j$ times).
+
+Let $G$ be a reductive group with Frobenius data $(F,n,\phi,k,j)$.
+Then $e = k/j\in\ring{Q}$ is the {\it Frobenius exponent}.
+
+Assume further that $F$ has the property that $F(T)=T$ and $F(B)=B$.
+The Frobenius $F$ then permutes the set of root spaces $X_\alpha$, of
+simple roots $\alpha\in \Delta$ and there is a unique permutation
+$\rho:\Delta\to\Delta$ such that $F(X_\alpha) = X_{\rho\alpha}$.  This
+uniquely determines an automorphism (again called $\rho$) of the
+Dynkin diagram that respects the integer labels on edges, but that
+does not always respect the direction of the arrows on edges.
+
+If $F$ if a Frobenius map on $G$, then the set of fixed points
+\[
+G(K)^F = \{ g \in G(K) \mid F(g) = g\}
+\]
+is a finite group. In fact,
+\[
+G(K)^F \subset^\phi GL(n,K)^{F^j} = GL(n,\ring{F}_{q}),
+\]
+where $\ring{F}_q = K^{Fr_q}$ is a finite field with $q=p^k$
+elements.
+
+We have a map $Q$ from the set of pairs $(G,F)$ to the set of finite
+groups given by
+\[
+Q(G,F) = (G(K)^F/Z_G(K)^F)'
+\]
+Here the derived group (indicated by $'$) is the derived group as an
+abstract group rather than the closed derived subgroup introduced
+earlier.
+
+
+\section{Almost Simple simply-connected groups}
+
+We say that an almost simple group $G$ is {\it simply connected} if
+the set of positive coroots spans the cocharacter lattice:
+$\ring{Z}\Phi^{\vee+} = X_*(T)$.  (This condition does not depend on
+the choice of $B$ and $T\subset B$.)
+
+The structure theory of almost simple groups leads to a collection
+of data $(p,K,G,B,T,\ldots)$ that we call the Lie {\it theater}.
+This is the data introduced in the first pages of an enormous number
+of research articles on Lie theory.  Here we consider the data
+as restricted to the context of interest for the classification
+of finite simple groups.
+
+\begin{definition}  A {\it Lie theater} (for almost-simple simply connected
+  groups) consists of the following data
+  \[
+  \Theta = (p,K,G,B,T,A,D,F,n,\phi,k,j,e,\rho)
+  \]
+  subject to the type constraints and propositions given below.
+\end{definition}
+
+\begin{itemize}
+\item $p\ge 2$ is a prime number.
+\item $K$ is an algebraically closed field of characteristic $p$.
+\item $G$ is an almost simple group.
+\item $B$ is a Borel subgroup of $G$.
+\item $T$ is a maximal torus of $G$ that is also a subgroup of $B$.
+  The maximal torus has character $X^*(T)$ and cocharacter groups $X_*(T)$.
+\item Let $\Phi^+\subset X^*(T)$ be the set of positive roots in $X^*(T)$
+  with respect to $B$ and $T$.
+\item Let $\Delta\subset \Phi^+$ be the set of simple roots.
+\item $A:\Delta\times\Delta\to\ring{Z}$ is the Cartan matrix
+  $A(\alpha,\beta)=\langle \alpha,\beta^\vee\rangle$ with node set $\Delta\ni\alpha,\beta$.
+\item $D$ is the Dynkin diagram attached to $\Delta,A$.
+\item $(F,n,\phi,k,j)$ is Frobenius data for $G$ such that $F(G)=G$,
+  $F(B)=B$ and $F(T)=T$.
+\item $e = k/j\in \ring{Q}$ is the Frobenius exponent.
+\item $\rho:D\to D$ is the arrow-forgetful automorphism of the Dynkin diagram induced
+  by the Frobenius data (as described above).
+\end{itemize}
+
+The data is subject to the following additional conditions.
+
+\begin{itemize}
+\item (simply-connected)  $\ring{Z}\Phi^{\vee+} = X_*(T)$.
+\item $(D,\rho,p,e)$ has simple type. (See definition \ref{def:st}.)
+\end{itemize}
+
+Given a theater $\Theta =(p,K,G,\ldots,F,\ldots)$ there is a finite
+group $Q(\Theta) = Q(G,F)$, introduced above.
+
+\begin{theorem}  If $\Theta$ is a Lie theater, then $Q(\Theta)$
+  is a finite simple group.
+\end{theorem}
+
+
+\begin{definition}\label{def:fsg-Lie}
+  A finite simple group isomorphic to $Q(\Theta)$ for some
+  Lie theater $\Theta$ is a {\it finite simple group of Lie type}.
+\end{definition}
+
+
+We define a relation between tuples of simple type and finite simple
+groups $Q$ of Lie type:
+\[
+(D,\rho,p,e)\sim H
+\]
+if there exists a theater $\Theta$ mapping to $(D,\rho,p,e)$ such that
+$Q = Q(\Theta)$.
+
+\begin{theorem}[classification of finite groups of Lie type]
+  This relation $(\simeq)$ induces a well-defined surjective map
+  from isomorphism classes of tuples of simple type
+  to isomorphism classes of finite groups of Lie type.
+  If two non-isomorphic tuples of simple type map to
+  isomorphic finite groups of Lie type, then it is one
+  of the duplicates enumerated in Theorem~\ref{thm:duplicate}.
+\end{theorem}
+
+That is, each tuple of simple type is isomorphic to one in the
+image of a Lie theater $\Theta$.  Then $Q(\Theta)$ is a finite simple
+group of Lie type.
 
 
 
-The classification means that every $(D,\rho,q)$ is realized by some
-$G^F$ (where $G$ is almost simple simply connected) and if two groups
-$G^F$ and $G^F$ have equivalent data $(D,\rho,q)$, they are
-isomorphic.  There are choices involved in constructing data
-$(D,\rho,q)$ from $G^F$, and in rare cases, isomorphic groups can have
-inequivalent data.  These duplicates have been classified.
 
-The corresponding simple group is $G^F/Z(G^F)$.
+\subsection{Notes on Lie type}
 
+Wiki's list \cite{Wiki} notes that the order of a finite simple group
+uniquely determines it up to isomorphism, with the following exceptions.
+\begin{itemize}
+\item $|\Alt_8|= |A_2(4)|$ and both have order 20160,
+\item $|B_n(q)|=|C_n(q)|$, when $n>2$ and $q$ odd.
+\end{itemize}
+
+There is a special situation that occurs for the smallest of the
+the series ${}^2B_2(2^{1/2})$.  It is not simple, but its derived
+group is simple.  This is the Tits group, which is sometimes
+considered as a sporadic groups.  It is for the
+sole purpose of including the Tits group that the map $Q$
+was defined using the derived subgroup.
 
 \section{Comments about Notation}
 
-``$A \times B$ denotes a direct product, with normal subgroups $A and
-B$; also $A:B$ denotes a semidirect product (or split extension), with
-a normal subgroup A and subgroup $B$; and $A \cdot B$ denotes a
+The rest of the article deals with the sporadic groups.  We depart
+from conventions used in the earlier sections, where $G$ was an affine
+group.  Now $G$ is an abstract group; that is, a group in the
+conventional sense.  Notation will be adapted to this new setting, so
+that now $Z(G)$ and $G'$ denote the center and derived subgroup of
+$G$, respectively.
+
+$\Alt_n$ is the alternating group on $n$ letters,
+(reserving $A_n$ for the Dynkin diagram that appeared earlier).
+
+``$A \times B$ denotes a direct product, with normal subgroups $A$ and
+$B$; also $A:B$ denotes a semidirect product (or split extension),
+with a normal subgroup A and subgroup $B$; and $A \cdot B$ denotes a
 non-split extension, with a normal subgroup $A$ and quotient $B$, but
 no subgroup $B$; finally $A.B$ or just $AB$ denotes an unspecified
 extension" \cite[p.9]{wilson2009finite}. (For sequences of dots, what
@@ -555,8 +712,6 @@ If $p$ is prime, $p^n$ denotes a direct product of $n$ cyclic groups
 of order $p$.  That is, $p^n$ is elementary abelian group of order
 $p^n$.  \cite[p.9]{wilson2009finite}
 
-$Z(G)$ and $G'$ denote the center and derived subgroup of $G$,
-respectively.
 
 Let $p$ be a prime.  An extraspecial $p$-group is a finite $p$-group
 $P$ such that $P' = Z(P)$ and $P'$ has order $p$.  Then $P$ has order
@@ -576,7 +731,7 @@ is, having a simple Lie algebra, or equivalently noncommutative and
 having no proper closed connected normal subgroups) and not in the
 sense used by \cite[p.22]{wilson2009finite}.
 
-$S_n$ is the symmetric group on $n$ letters, and $Alt_n$ is the
+$S_n$ is the symmetric group on $n$ letters, and $\Alt_n$ is the
 alternating subgroup of index two in $S_n$.
 
 $O_p(G)$ denotes the $p$-core of the finite group $G$.  It
@@ -584,14 +739,14 @@ is the largest normal $p$-subgroup of $G$.  It is the intersection
 of Sylow $p$-subgroups.
 
 
-\section{Sporadic Groups} 
+\section{Sporadic Groups}
 
 The lists above specify all but the last $26$ finite simple groups,
 called the sporadic groups.  The $26$ sporadic groups are classified
 into three happy families $(5+7+8)$ and the six pariahs.  A useful
 reference is the atlas of sporadic groups \cite{A}.
 
-\subsection{First Happy Family (Mathieu groups)} \label{sec:first-happy-family}
+\subsection{First Happy Family (Mathieu groups)} \label{section-mathieu}
 
 The first happy family (of $5$) are the Mathieu groups.  These are quite
 elementary to specify in terms of automorphism groups of Steiner
@@ -601,21 +756,21 @@ systems and their subgroups.
 \item A Steiner system $S(t,k,v)$, where $t < k < v$ are positive
   integers is a finite set $X$ of cardinality $v$, a collection of $k$
   element subsets of $X$ (called blocks), such that each $t$ element
-  subset of $X$ is contained in a unique block. \label{itm:steiner-system-def}
-\item The Steiner system $S(5,8,24)$ \label{itm:steiner-system-5-8-24} exists and is unique up to
+  subset of $X$ is contained in a unique block.
+\item The Steiner system $S(5,8,24)$ exists and is unique up to
   isomorphism.  The automorphism group of this Steiner system is
-  $M_{24}$ \label{mathieu-group-M24}(which by construction is a subgroup of $S_{24}$).  The
-  stabilizer of a point $x$ (in the $24$ element set $X$) is $M_{23}$ \label{mathieu-group-M23},
-  and the stablizer of two distinct points is $M_{22}$.\label{mathieu-group-M22}
+  $M_{24}$ (which by construction is a subgroup of $S_{24}$).  The
+  stabilizer of a point $x$ (in the $24$ element set $X$) is $M_{23}$,
+  and the stablizer of two distinct points is $M_{22}$.
 \item The Steiner system $S(5,6,12)$ exists and is unique up to
   isomorphism.  The automorphism group of this Steiner system is
-  $M_{12}$.  The stabilizer of a point is $M_{11}$. \label{itm:steiner-system-5-6-12}
+  $M_{12}$.  The stabilizer of a point is $M_{11}$.
 \item The isomorphism class of the finite simple groups $M_{24}$,
   $M_{23}$, $M_{22}$, $M_{12}$, and $M_{11}$ does not depend on any of
-  the choices in this construction. 
+  the choices in this construction.
 \end{itemize}
 
-\subsection{Second Happy Family and the Leech lattice} \label{sec:second-happy-family}
+\subsection{Second Happy Family and the Leech lattice} \label{section-second-happy-fam}
 
 The second happy family (of 7) are those related to the Leech lattice.
 \begin{itemize}
@@ -638,12 +793,12 @@ The second happy family (of 7) are those related to the Leech lattice.
   isomorphic to $M_{22}$. \cite[p.116]{robert1998twelve}.  (Rank $3$
   permutation group is defined below in the pariah section.)
 \item $J_2$.  $Co_1$ has a subgroup of order $3$ whose normalizer is
-  isomorphic to $Alt_9 \times S_3$.  The $Alt_9$ factor has subgroup
-  $Alt_5$, and the centralizer of $Alt_5$ in $Co_1$ is $J_2$
+  isomorphic to $\Alt_9 \times S_3$.  The $\Alt_9$ factor has subgroup
+  $\Alt_5$, and the centralizer of $\Alt_5$ in $Co_1$ is $J_2$
   \cite[p.218]{wilson2009finite}.
 \item Suz.  In continuation of the construction of the subgroups
-  $Alt_9 \times S_3$ and $Alt_5$ in $Co_1$, the group $Alt_5$ has a
-  subgroup $Alt_3$.  The centralizer of $Alt_3$ in $Co_1$ is $3\cdot
+  $\Alt_9 \times S_3$ and $\Alt_5$ in $Co_1$, the group $\Alt_5$ has a
+  subgroup $\Alt_3$.  The centralizer of $\Alt_3$ in $Co_1$ is $3\cdot
   Suz$, a $3$-fold central cover of $Suz$.
   \cite[p.218]{wilson2009finite}.
 \item The isomorphism class of the finite simple groups $Co_1$,
@@ -651,7 +806,7 @@ The second happy family (of 7) are those related to the Leech lattice.
   the choices in the construction.
 \end{itemize}
 
-\subsection{monster}  \label{monster}
+\subsection{monster}
 
 The third happy family (of 8) are those related to the Fischer-Griess
 monster group $M$.  A construction of the monster is needed.
@@ -725,7 +880,7 @@ This quotient is $2 \times M$.
 
 
 
-\subsection{Third Happy Family and the Monster} \label{third-happy-family}
+\subsection{Third Happy Family and the Monster}
 
  
 \begin{itemize}
@@ -747,14 +902,14 @@ This quotient is $2 \times M$.
           %isomorphic to $2^{1+24}\cdot Co_1$ \cite[p.253]{wilson2009finite}.  Take an
           %element ``$x$ of order three from $2^{1+24}\cdot Co_1$, such
           %that $x$ maps to an element of Co_1 with centralizer 3
-          %\times Alt_9."  Then N_M(\langle x\rangle ) \simeq S_3 \times Th
+          %\times \Alt_9."  Then N_M(\langle x\rangle ) \simeq S_3 \times Th
 \item $HN$.  Let $x$ be an element of conjugacy class $5A$ in $M$.
   Then $HN \simeq C_M(x)/\langle x\rangle $ \cite[p.262]{wilson2009finite}.
   %\cite[p.260]{wilson2009finite}.  More directly,
           %``If x is an element of order 5 in 2^{1+24}\cdot Co_1,
           %mapping to an element of class 5B in the quotient group of
           %Co_1, then its centralizer has shape 5 \times 2^{1+8}\cdot
-          %(Alt_5 \times Alt_5).2."  Then HN \simeq C_M(x)/\langle x\rangle 
+          %(\Alt_5 \times \Alt_5).2."  Then HN \simeq C_M(x)/\langle x\rangle 
           %\cite[p.262]{wilson2009finite}.  (5B in Co_1 is \cite{ACo1} defined in the
           %altas.) More directly,
 \item He.  Let $x$ be an element in conjugacy class $7A$ in $M$.  Then
@@ -792,7 +947,7 @@ its center is $Fi_n$, for $n=22,23,24$.
   $Fi_{24}'$ is $2\cdot Fi_{22}:2$. \cite[p.250]{wilson2009finite}
 \end{itemize}
 
-\subsection{The Pariahs} \label{pariahs}
+\subsection{The Pariahs}
 
 It is not clear what the best route to the six pariahs will be.
 Expert opinion is needed.  At the very least we might specify them as
@@ -806,7 +961,7 @@ pariah.
 \begin{itemize}
 \item $J_1$.  ``It is the unique simple group which has abelian Sylow
   $2$-groups and contains an involution with centralizer isomorphic to''
-  $2 \times Alt_5$.   \cite[p.150]{robert1998twelve}
+  $2 \times \Alt_5$.   \cite[p.150]{robert1998twelve}
           %Moreover, it was
           %"constructed by computer by John Cannon as a subgroup of
           %G2(11) generated by a pair of degree 7 matrices over the
@@ -814,14 +969,14 @@ pariah.
 \item $J_3$. This group appears in a centralizer involution problem.
   %``This is a group discovered by Janko as a solution to a
   %centralizer of involution problem.  ``The involution centralizer is
-  $2^{1+4}_{-}:Alt_5$, split extension (therefore not the standard
+  $2^{1+4}_{-}:\Alt_5$, split extension (therefore not the standard
   holomorph, which embeds in $GL(4,C)$)''
   \cite[p.151]{robert1998twelve}.  There are two finite simple groups
   with this involution centralizer.  The other is $J_2$, which appears
   in the second happy family.  $J_3$ has order $2^7\,3^5\,5.17.19$."
 \item $Ly$.  This group is uniquely characterized up to isomorphism as
   a finite simple group that contains an involution whose centralizer
-  is isomorphic to $2 \cdot Alt_{11}$, the covering group of the
+  is isomorphic to $2 \cdot \Alt_{11}$, the covering group of the
   alternating group of degree $11$.  Moreover, the group has a single
   class of involutions and has order
   $2^8*3^5*5*7*11*37*61*67$. \cite[p.151]{robert1998twelve}

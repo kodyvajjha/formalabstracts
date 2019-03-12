@@ -8,36 +8,23 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{epstopdf}
+% \usepackage{epstopdf}
 \usepackage{fancyhdr}
-\usepackage{tikz-cd}
+% \usepackage{tikz-cd}
 
 \setlength{\headheight}{15.2pt}
 \pagestyle{fancy}
 
-\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\usepackage{tikz} % Needs pgf version >= 2.10.
-\usetikzlibrary{chains,shapes,arrows,trees,matrix,positioning,backgrounds,fit,calc,fadings}
-
-\def\tikzfig#1#2#3{%
-\begin{figure}[htb]%
-  \centering
-\begin{tikzpicture}#3
-\end{tikzpicture}
-  \caption{#2}
-  \label{fig:#1}%
-\end{figure}%
-}
-\def\smalldot#1{\draw[fill=black] (#1) %
-node [inner sep=1.3pt,shape=circle,fill=black] {}}
 
 \def\op#1{\text{#1}}
 \def\ring#1{{\Bbb #1}}
 \def\VR{V_{\ring{R}}}
 \def\Gm{\ring{G}_m}
 \def\Ga{\ring{G}_a}
-
+\def\Alt{\op{Alt}}
+\def\XX#1{{\tt (#1)}}
 
 
 \title{List of Finite Simple Groups}
@@ -47,12 +34,9 @@ node [inner sep=1.3pt,shape=circle,fill=black] {}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
 
 \begin{document}
-
-%\abstract{This note gives a list of finite simple groups organized for
- % a formal description of the classification theorem in the Lean
- % theorem prover.}
   
 \maketitle
 
@@ -61,19 +45,6 @@ node [inner sep=1.3pt,shape=circle,fill=black] {}}
 
 \parskip=\baselineskip
 \input{fsg-input}
-
-
-
-
-%\baselineskip=2\baselineskip
-
-
-
-
-
-
-%\bibliographystyle{plainnat}
-%\bibliographystyle{plain}      
 
 %\input{ref}
 \bibliography{refs} 

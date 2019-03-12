@@ -1,0 +1,495 @@
+
+<p>
+Statement of the Classification Theorem of Finite Simple Groups  
+</p>
+
+<h2 id="a0000000018" class="tex-section"><span data-tag="">5</span> structure theory for almost simple groups</h2>
+<p>
+An affine group is $G$ is <em>almost simple</em> if it has no proper normal closed connected subgroup. An almost simple group is connected (because the connected component of the identity of any affine group is a normal closed connected subgroup). 
+</p>
+<p>
+We fix the context in the section. Let $G$ be almost simple, let $B$ be a Borel subgroup, let $U = B'$ be its closed derived subgroup, and let $T$ be a maximal torus of $G$ that is a subgroup of $B$. 
+</p>
+<h3 id="a0000000020" class="tex-subsection"><span data-tag="">5.1</span> positive roots</h3>
+<p>
+Let $f:X\to {\Bbb G}_ a$ be an isomorphism from a closed subgroup $X$ of $U$ to ${\Bbb G}_ a$. Assume that $X$ is normalized by $T$. Then $T$ acts on $X$ by 
+</p>
+<div class="equation">
+  \[  T \times X \to X,\quad (t,x) \mapsto t x t^{-1}.  \]
+</div>
+<p>
+Then there exists a unique element $\lambda \in X^*(T)$ such that $T$ acts on $X$ by 
+</p>
+<div class="equation">
+  \[  T\times X\to ^{\lambda ,f} {\Bbb G}_ m\times {\Bbb G}_ a\to {\Bbb G}_ a\to ^{f^{-1}} X,  \]
+</div>
+<p>
+ using the action of ${\Bbb G}_ m$ on ${\Bbb G}_ a$ given above. The element $\lambda \in X^*(T)$ attached to $X$ is called a positive root with respect to $B$ and $T$, and $X = X_\lambda $ is called a positive root space. The set $\Phi ^+$ of positive roots is a finite subset of $X^*(T)$. 
+</p>
+<p>
+Let $\alpha \in \Phi ^+$, let $T_\alpha \subset T$ be the kernel of $\alpha : T\to {\Bbb G}_ m$, and let $M_\alpha $ be the centralizer of $T_\alpha $ with derived group $M_\alpha '$. The affine group $M_\alpha '$ is almost simple with maximal torus $S \subset T \cap M_\alpha '$. There exists a unique cocharacter $\alpha ^\vee \in X_*(T)$ factoring through $S$ 
+</p>
+<div class="equation">
+  \[  \alpha ^\vee :{\Bbb G}_ m\to S \to T  \]
+</div>
+<p>
+ and such that $\langle \alpha ,\alpha ^\vee \rangle = 2$. Running over $\alpha \in \Phi ^+$, the set of all $\alpha ^\vee $ so obtained is called the set of positive coroots $\Phi ^{\vee +}\subset X_*(T)$. 
+</p>
+<h3 id="a0000000019" class="tex-subsection"><span data-tag="">5.2</span> simple roots and the Dynkin diagram</h3>
+<p>
+There exists a unique subset $\Delta \subset \Phi ^+$ such that every positive root is a linear combination of $\Delta $ with nonnegative coefficients. That is, every positive root is in the cone spaned by the simple positive roots. The set $\Delta $ is called the set of simple roots. (The set $\Delta $ depends on the choices $T\subset B\subset G$.) 
+</p>
+<h2 id="a0000000017" class="tex-section"><span data-tag="">6</span> classification data</h2>
+<p>
+In this subsection, we drop the earlier context. Let $\Delta $ be any finite set. 
+</p>
+<p>
+Define the <em>Cartan matrix</em> to be a matrix $A:\Delta \times \Delta \to {\Bbb Z}$ that has the following properties. 
+</p>
+<ul>
+  <li><p>
+$A(\alpha ,\beta )\in \{ 2,0,-1,-2,-3\} $. 
+</p>
+</li><li><p>
+$A(\alpha ,\alpha )=2$. 
+</p>
+</li><li><p>
+$A(\alpha ,\beta )\le 0$ for all $i\ne j$. 
+</p>
+</li><li><p>
+$A(\alpha ,\beta )=0$ iff $A(\beta ,\alpha )=0$. 
+</p>
+</li><li><p>
+If $A(\alpha ,\beta )<-1$, then $A(\beta ,\alpha )=-1$. 
+</p>
+</li>
+</ul>
+<p>
+The Dynkin diagram of $(\Delta ,A)$ is a graph (with no loops and no multiple joins) with $r$ nodes, indexed by $\Delta $, which we now describe. Edges of the graph are optionally decorated with an integer $2$ or $3$ and an ordering of the endpoints (an arrow from node $\alpha $ to node $\beta $). Two distinct nodes are connected by an edge iff $A(\alpha ,\beta )\ne 0$. The edge is not decorated if $A(\alpha ,\beta )=A(\beta ,\alpha )=-1$. But if $A(\beta ,\alpha )\ne -1,0$, then the edge is decorated with the integer $-A(\beta ,\alpha )$ and an arrow from $\alpha $ to $\beta $. The integer $2$ or $3$ is often depicted as a double or triple bond in the graph. 
+</p>
+<p>
+An isomorphism of Dynkin diagrams is a bijection $f:\Delta \to \Delta $ that preserves edges and the labeling of on edges. 
+</p>
+<p>
+An arrow-forgetful automorphism $\rho $ of a Dynkin diagram is defined to be a graph isomorphism of the underlying graph of the Dynkin diagram except that it might not respect the optional arrows that label some edges. $\rho $ is required to respect all the optional natural number labels. 
+</p>
+<p>
+A classification datum consists of a tuple 
+</p>
+<div class="equation">
+  \[  (D,\rho ,p,e)  \]
+</div>
+<p>
+ where $D$ is a Dynkin diagram, $\rho $ is an arrow-forgetful automorphism of the diagram $p$ is a prime number, and $e$ is a rational number. Not all such tuples appear in the classification theorem. See definition . 
+</p>
+<p>
+In particular, $D$ must be only of the connected Dynkin diagrams that appear in the Cartan classification of Lie algebras over ${\Bbb C}$. By that classification, there are diagrams 
+</p>
+<div class="equation">
+  \[  D = A_ r,~  B_ r,~  C_ r,~  D_ r,~  E_6,~  E_7,~  E_8,~  G_2,~  F_4.  \]
+</div>
+<p>
+ as shown in Figure (insert). 
+</p>
+<p>
+The automorphism $\rho $ of the Dynkin diagram is determined by its order, and the symbol for the Dynkin diagram is decorated with a prepended superscript indicating the order. If $\rho =1$ the superscript is omitted. The tuple $(D,\rho ,p,e)$ is thus written ${}^\rho D(q)$ or $D(q)$, where $q=p^ e$. Here is the classification. $p$ is any prime. $e\in {\Bbb N}$, with $e\ge 1$. The excluded values come from <span class="cite">[<a href="/bibliography/Wiki">Wiki</a>]</span>. 
+</p>
+<p>
+<strong>Definition&#160;1. </strong> A tuple $(D,\rho ,p,e)$ has <em>simple type</em> if it consists of one of the following cases. <ul>
+  <li><p>
+$A_ r(p^ e)$, where $r\ge 1$. If $r=1$, then $p^ e>3$. 
+</p>
+</li><li><p>
+$B_ r(p^ e)$, where $r\ge 2$. If $r=2$, then $p^ e > 2$. 
+</p>
+</li><li><p>
+$C_ r(p^ e)$, where $r\ge 3$. 
+</p>
+</li><li><p>
+$D_ r(p^ e)$, where $r\ge 4$ 
+</p>
+</li><li><p>
+${}^2A_ r(p^ e)$, where $r\ge 2$. If $r=2$, then $p^ e > 2$. 
+</p>
+</li><li><p>
+${}^2D_ r(p^ e)$, where $r\ge 4$. 
+</p>
+</li><li><p>
+${}^3D_4(p^ e)$. 
+</p>
+</li><li><p>
+$G_2(p^ e)$, where $p^ e > 2$. 
+</p>
+</li><li><p>
+$F_4(p^ e)$. 
+</p>
+</li><li><p>
+$E_6(p^ e)$. 
+</p>
+</li><li><p>
+${}^2E_6(p^ e)$. 
+</p>
+</li><li><p>
+$E_7(p^ e)$. 
+</p>
+</li><li><p>
+$E_8(p^ e)$. 
+</p>
+</li><li><p>
+${}^2B_2(2^{f+1/2})$, where $f\in {\Bbb N}$. 
+</p>
+</li><li><p>
+${}^2G_2(3^{f+1/2})$, where $f\in {\Bbb N}$. 
+</p>
+</li><li><p>
+${}^2F_4(2^{f+1/2})$, where $f\in {\Bbb N}$. 
+</p>
+</li>
+</ul> 
+</p>
+
+<p>
+The last three cases are noteworthy. If the automorphism $\rho $ of $D$ is nontrivial, and if some edge of $D$ carries a label $a =2,3$, then $p=a$. 
+</p>
+<h2 id="a0000000016" class="tex-section"><span data-tag="">7</span> Frobenius</h2>
+<p>
+Let $K$, $G$, $B$, $T$ be given as in the previous section. We assume in this section that $K$ is an algebraically closed field of positive characteristic $p$. 
+</p>
+<p>
+Let $q = p^ k$ for some $k\ge 1$. 
+</p>
+<p>
+There is a <em>Frobenius</em> morphism $F_ q:GL(n)\to GL(n)$ given on coordinate rings by 
+</p>
+<div class="equation">
+  \[  F_ q^*(x_{ij}) = x_{ij}^ q,\quad F_ q^*(x_0) = x_0^ q.  \]
+</div>
+<p>
+ Let $G$ be a linear algebraic group over $K$. <em>Standard Frobenius</em> data for $G$ consists of data $(F,n,\phi ,k)$, where $F:G\to G$ is a morphism, $\phi :G\to GL(n)$ is an isomorphism of $G$ onto a closed subgroup of $GL(n)$ that intertwines: 
+</p>
+<div class="equation">
+  \[  \phi \circ F = F_ q \circ \phi  \]
+</div>
+<p>
+ where $q= p^ k$. <em>Frobenius data</em> $(F,n,\phi ,k,j)$ consists of a morphism $F : G\to G$, where $(F^ j,n,\phi ,k)$ is a standard Frobenius. Here $F^ j = F\circ F\cdots $ ($j$ times). 
+</p>
+<p>
+Let $G$ be a reductive group with Frobenius data $(F,n,\phi ,k,j)$. Then $e = k/j\in {\Bbb Q}$ is the <em>Frobenius exponent</em>. 
+</p>
+<p>
+Assume further that $F$ has the property that $F(T)=T$ and $F(B)=B$. The Frobenius $F$ then permutes the set of root spaces $X_\alpha $, of simple roots $\alpha \in \Delta $ and there is a unique permutation $\rho :\Delta \to \Delta $ such that $F(X_\alpha ) = X_{\rho \alpha }$. This uniquely determines an automorphism (again called $\rho $) of the Dynkin diagram that respects the integer labels on edges, but that does not always respect the direction of the arrows on edges. 
+</p>
+<p>
+If $F$ if a Frobenius map on $G$, then the set of fixed points 
+</p>
+<div class="equation">
+  \[  G(K)^ F = \{  g \in G(K) \mid F(g) = g\}   \]
+</div>
+<p>
+ is a finite group. In fact, 
+</p>
+<div class="equation">
+  \[  G(K)^ F \subset ^\phi GL(n,K)^{F^ j} = GL(n,{\Bbb F}_{q}),  \]
+</div>
+<p>
+ where ${\Bbb F}_ q = K^{Fr_ q}$ is a finite field with $q=p^ k$ elements. 
+</p>
+<p>
+We have a map $Q$ from the set of pairs $(G,F)$ to the set of finite groups given by 
+</p>
+<div class="equation">
+  \[  Q(G,F) = (G(K)^ F/Z_ G(K)^ F)'  \]
+</div>
+<p>
+ Here the derived group (indicated by $'$) is the derived group as an abstract group rather than the closed derived subgroup introduced earlier. 
+</p>
+<h2 id="a0000000014" class="tex-section"><span data-tag="">8</span> Almost Simple simply-connected groups</h2>
+<p>
+We say that an almost simple group $G$ is <em>simply connected</em> if the set of positive coroots spans the cocharacter lattice: ${\Bbb Z}\Phi ^{\vee +} = X_*(T)$. (This condition does not depend on the choice of $B$ and $T\subset B$.) 
+</p>
+<p>
+The structure theory of almost simple groups leads to a collection of data $(p,K,G,B,T,\ldots )$ that we call the Lie <em>theater</em>. This is the data introduced in the first pages of an enormous number of research articles on Lie theory. Here we consider the data as restricted to the context of interest for the classification of finite simple groups. 
+</p>
+<p>
+<strong>Definition&#160;2. </strong>A <em>Lie theater</em> (for almost-simple simply connected groups) consists of the following data <div class="equation">
+  \[  \Theta = (p,K,G,B,T,A,D,F,n,\phi ,k,j,e,\rho )  \]
+</div> subject to the type constraints and propositions given below. 
+</p>
+
+<ul>
+  <li><p>
+$p\ge 2$ is a prime number. 
+</p>
+</li><li><p>
+$K$ is an algebraically closed field of characteristic $p$. 
+</p>
+</li><li><p>
+$G$ is an almost simple group. 
+</p>
+</li><li><p>
+$B$ is a Borel subgroup of $G$. 
+</p>
+</li><li><p>
+$T$ is a maximal torus of $G$ that is also a subgroup of $B$. The maximal torus has character $X^*(T)$ and cocharacter groups $X_*(T)$. 
+</p>
+</li><li><p>
+Let $\Phi ^+\subset X^*(T)$ be the set of positive roots in $X^*(T)$ with respect to $B$ and $T$. 
+</p>
+</li><li><p>
+Let $\Delta \subset \Phi ^+$ be the set of simple roots. 
+</p>
+</li><li><p>
+$A:\Delta \times \Delta \to {\Bbb Z}$ is the Cartan matrix $A(\alpha ,\beta )=\langle \alpha ,\beta ^\vee \rangle $ with node set $\Delta \ni \alpha ,\beta $. 
+</p>
+</li><li><p>
+$D$ is the Dynkin diagram attached to $\Delta ,A$. 
+</p>
+</li><li><p>
+$(F,n,\phi ,k,j)$ is Frobenius data for $G$ such that $F(G)=G$, $F(B)=B$ and $F(T)=T$. 
+</p>
+</li><li><p>
+$e = k/j\in {\Bbb Q}$ is the Frobenius exponent. 
+</p>
+</li><li><p>
+$\rho :D\to D$ is the arrow-forgetful automorphism of the Dynkin diagram induced by the Frobenius data (as described above). 
+</p>
+</li>
+</ul>
+<p>
+The data is subject to the following additional conditions. 
+</p>
+<ul>
+  <li><p>
+(simply-connected) ${\Bbb Z}\Phi ^{\vee +} = X_*(T)$. 
+</p>
+</li><li><p>
+$(D,\rho ,p,e)$ has simple type. (See definition <a href="/tag/" data-tag="">1</a>.) 
+</p>
+</li>
+</ul>
+<p>
+Given a theater $\Theta =(p,K,G,\ldots ,F,\ldots )$ there is a finite group $Q(\Theta ) = Q(G,F)$, introduced above. 
+</p>
+<p>
+<strong>Theorem&#160;3. </strong>If $\Theta $ is a Lie theater, then $Q(\Theta )$ is a finite simple group. 
+</p>
+
+<p>
+<strong>Definition&#160;3. </strong> A finite simple group isomorphic to $Q(\Theta )$ for some Lie theater $\Theta $ is a <em>finite simple group of Lie type</em>. 
+</p>
+
+<p>
+We define a relation between tuples of simple type and finite simple groups $Q$ of Lie type: 
+</p>
+<div class="equation">
+  \[  (D,\rho ,p,e)\sim H  \]
+</div>
+<p>
+ if there exists a theater $\Theta $ mapping to $(D,\rho ,p,e)$ such that $Q = Q(\Theta )$. 
+</p>
+<p>
+<strong>Theorem&#160;4 (classification of finite groups of Lie type). </strong> This relation $(\simeq )$ induces a well-defined surjective map from isomorphism classes of tuples of simple type to isomorphism classes of finite groups of Lie type. If two non-isomorphic tuples of simple type map to isomorphic finite groups of Lie type, then it is one of the duplicates enumerated in Theorem&#160;<a href="/tag/" data-tag="">2</a>. 
+</p>
+
+<p>
+That is, each tuple of simple type is isomorphic to one in the image of a Lie theater $\Theta $. Then $Q(\Theta )$ is a finite simple group of Lie type. 
+</p>
+<h3 id="a0000000015" class="tex-subsection"><span data-tag="">8.1</span> Notes on Lie type</h3>
+<p>
+Wiki's list <span class="cite">[<a href="/bibliography/Wiki">Wiki</a>]</span> notes that the order of a finite simple group uniquely determines it up to isomorphism, with the following exceptions. 
+</p>
+<ul>
+  <li><p>
+$|\text{Alt}_8|= |A_2(4)|$ and both have order 20160, 
+</p>
+</li><li><p>
+$|B_ n(q)|=|C_ n(q)|$, when $n>2$ and $q$ odd. 
+</p>
+</li>
+</ul>
+<p>
+There is a special situation that occurs for the smallest of the the series ${}^2B_2(2^{1/2})$. It is not simple, but its derived group is simple. This is the Tits group, which is sometimes considered as a sporadic groups. It is for the sole purpose of including the Tits group that the map $Q$ was defined using the derived subgroup. 
+</p>
+<h2 id="a0000000013" class="tex-section"><span data-tag="">9</span> Comments about Notation</h2>
+<p>
+The rest of the article deals with the sporadic groups. We depart from conventions used in the earlier sections, where $G$ was an affine group. Now $G$ is an abstract group; that is, a group in the conventional sense. Notation will be adapted to this new setting, so that now $Z(G)$ and $G'$ denote the center and derived subgroup of $G$, respectively. 
+</p>
+<p>
+$\text{Alt}_ n$ is the alternating group on $n$ letters, (reserving $A_ n$ for the Dynkin diagram that appeared earlier). 
+</p>
+<p>
+“$A \times B$ denotes a direct product, with normal subgroups $A$ and $B$; also $A:B$ denotes a semidirect product (or split extension), with a normal subgroup A and subgroup $B$; and $A \cdot B$ denotes a non-split extension, with a normal subgroup $A$ and quotient $B$, but no subgroup $B$; finally $A.B$ or just $AB$ denotes an unspecified extension" <span class="cite">[<span class="postnote">p.9</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. (For sequences of dots, what is the operator precedence and associativity of this notation?) 
+</p>
+<p>
+If $p$ is prime, $p^ n$ denotes a direct product of $n$ cyclic groups of order $p$. That is, $p^ n$ is elementary abelian group of order $p^ n$. <span class="cite">[<span class="postnote">p.9</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span> 
+</p>
+<p>
+Let $p$ be a prime. An extraspecial $p$-group is a finite $p$-group $P$ such that $P' = Z(P)$ and $P'$ has order $p$. Then $P$ has order $p^{1+2n}$, for some positive $n$. For each $p,n$, there are two extraspecial $p$-groups of a given order up to isomorphism, denoted $p^{1+2n}_{\pm }$. The signs are determined by the following rules. If $p$ is odd, the sign is $+$ iff $P$ has exponent $p$ (that is, every non-identity element has order $p$). If $p=2$, the function $x$ to $x^2$ on $P$ induces a map $P/P'$ to $Z(P)$, which turns out to be a quadratic form on the vector space $P/P'$. The notation $+$ means that the quadratic form has an isotropic vector, and $-$ otherwise (for an anisotropic form) <span class="cite">[<span class="postnote">p.19</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span>, <span class="cite">[<span class="postnote">pp.59,83</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. 
+</p>
+<p>
+The term <em>almost simple</em> is used in the sense of Lie theory (that is, having a simple Lie algebra, or equivalently noncommutative and having no proper closed connected normal subgroups) and not in the sense used by <span class="cite">[<span class="postnote">p.22</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. 
+</p>
+<p>
+$S_ n$ is the symmetric group on $n$ letters, and $\text{Alt}_ n$ is the alternating subgroup of index two in $S_ n$. 
+</p>
+<p>
+$O_ p(G)$ denotes the $p$-core of the finite group $G$. It is the largest normal $p$-subgroup of $G$. It is the intersection of Sylow $p$-subgroups. 
+</p>
+<h2 id="a0000000009" class="tex-section"><span data-tag="">10</span> Sporadic Groups</h2>
+<p>
+The lists above specify all but the last $26$ finite simple groups, called the sporadic groups. The $26$ sporadic groups are classified into three happy families $(5+7+8)$ and the six pariahs. A useful reference is the atlas of sporadic groups <span class="cite">[<a href="/bibliography/A">A</a>]</span>. 
+</p>
+<h3 id="a0000000012" class="tex-subsection"><span data-tag="">10.3</span> monster</h3>
+<p>
+The third happy family (of 8) are those related to the Fischer-Griess monster group $M$. A construction of the monster is needed. 
+</p>
+<ul>
+  <li><p>
+Here is a construction of the monster (up to a factor of 2) as the quotient of an infinite Coxeter group by one additional relation <span class="cite">[<a href="/bibliography/P">P</a>]</span>. This gives a quick construction. (Compare <span class="cite">[<span class="postnote">sec.5.8.5</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>.) 
+</p>
+</li><li><p>
+The monster can also be described up to isomorphism as the finite simple group that contains a pair of involutions $z,t$, such that the centralizer of $z$ is isomorphic to $2^{1+24}_{+}Co_1$ and the centralizer of $t$ is isomorphic to the baby monster $B$. <span class="cite">[<span class="postnote">p.148</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span>. This approach requires us to have a prior construction of $B$. 
+</p>
+</li><li><p>
+A third possible route to the monster is the construction of the Griess algebra, which has the monster as its automorphism group. (See the sketches in <span class="cite">[<span class="postnote">p.146</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span> and <span class="cite">[<span class="postnote">p.251</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>.) A fourth construction is through the monster vertex algebra <span class="cite">[<a href="/bibliography/VOA">VOA</a>]</span>. 
+</p>
+</li>
+</ul>
+<p>
+The monster group has an elementary presentation in terms of a quotient of an infinite Coxeter group <span class="cite">[<a href="/bibliography/JNB">JNB</a>]</span> <span class="cite">[<a href="/bibliography/P">P</a>]</span>. 
+</p>
+<p>
+We define a Coxeter group $Y_{443}$. The Coxeter graph is associated with a Coxter graph with $12$ vertices: 
+</p>
+<div class="equation">
+  \[  v_{ij},\quad i=0,1,2,\quad j=0,..,3.  \]
+</div>
+<p>
+ We construct an undirected graph with $9$ edges $\{ v_{ij},v_{i,{j+1}}\} $, for $j<3$, and with two additional edges that connect the graph: 
+</p>
+<div class="equation">
+  \[  \{ v_{00},v_{10}\} , \{ v_{00},v_{20}\} .  \]
+</div>
+<p>
+ Write $E$ for this set of $11$ edges. 
+</p>
+<p>
+Note: the graph is in the shape of a $Y$ with three arms $v_{ij}$, for $i=0,1,2$. 
+</p>
+<p>
+The associated Coxeter group $Y_{433}$ is the group given by $12$ generators and the following relations. 
+</p>
+<p>
+Generators: 
+</p>
+<div class="equation">
+  \[  x_{ij}, \quad i=0,1,2,\quad j=0,..,3.  \]
+</div>
+<p>
+Relations: 
+</p>
+<div class="equation">
+  \[  \forall i j, \quad (x_{ij}x_{i'j'})^{m(i,j,i',j')} = 1,  \]
+</div>
+<p>
+ where 
+</p>
+<div class="equation">
+  \[  m(i,j,i',j') = \begin{cases}  1,& \text{if } (i,j) = (i',j');\\  3,& \text{if } \{ v_{ij},v_{i'j'}\} \in E;\\  2,& \text{otherwise} \end{cases}  \]
+</div>
+<p>
+This defines $Y_{433}$. We define $G$ to be the quotient of $Y_{433}$ by the additional relation (called the spider relation): 
+</p>
+<div class="equation">
+  \[  (x_{00}x_{20}x_{21} x_{00}x_{10}x_{11} x_{00} x_{01} x_{02})^{10} = 1.  \]
+</div>
+<p>
+ This quotient is $2 \times M$. 
+</p>
+<h3 id="a0000000011" class="tex-subsection"><span data-tag="">10.4</span> Third Happy Family and the Monster</h3>
+<ul>
+  <li><p>
+$M$. The monster is characterized above and has an atlas page with further useful information <span class="cite">[<a href="/bibliography/AM">AM</a>]</span>. 
+</p>
+</li><li><p>
+$B$. $2\cdot B$ is a centralizer of an involution in $2A$ in $M$ <span class="cite">[<span class="postnote">p.256</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. ($2A$ is specified below.) 
+</p>
+</li><li><p>
+$Fi_{24}'$. $3\cdot Fi_{24}'$ is a centralizer of an element $x$ in the conjugacy class $3A$ of order $3$ in $M$ <span class="cite">[<span class="postnote">p.256-257</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. Moreover, $3\cdot Fi_{24}$ is the normalizer of the subgroup $\langle x\rangle $. 
+</p>
+</li><li><p>
+$Fi_{23}$. This is a subgroup of $Fi_{24}'$ described below. 
+</p>
+</li><li><p>
+$Fi_{22}$. This is a subgroup of $Fi_{24}'$ described below. 
+</p>
+</li><li><p>
+$Th$. Let $x$ be an element of order three in the conjugacy class $3C$, then $Th = C_ M(\langle x\rangle )/\langle x\rangle $. 
+</p>
+</li><li><p>
+$HN$. Let $x$ be an element of conjugacy class $5A$ in $M$. Then $HN \simeq C_ M(x)/\langle x\rangle $ <span class="cite">[<span class="postnote">p.262</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. 
+</p>
+</li><li><p>
+He. Let $x$ be an element in conjugacy class $7A$ in $M$. Then $He \simeq C_ M(x)/\langle x\rangle .$ <span class="cite">[<span class="postnote">p.263</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. 
+</p>
+</li>
+</ul>
+<p>
+These constructions mention conjugacy classes $2A$, $3A$, $3C$, $5A$, $6A$, $7A$ in $M$. Classes are labeled $NX$, where $N=1,2,3,4,5,6$ is the order of an element in the conjugacy class, and $X=A,B,\ldots $ are letters to differentiate the conjugacy classes of a given order, $A$ is the class of smallest cardinality of that order, $B$ is the second smallest, etc. In general there can be classes of the same order and cardinality, but that does not happen with any of the orders in $M$ we discuss. In particular, $2A$ is the smallest conjugacy class of order $2$, and $3A$ is the smallest conjugacy class of order $3$. The product of two elements of $2A$ can land in any of nine different conjugacy classes: $1A$, $2A$, $2B$, $3A$, $3C$, $4A$, $4B$, $5A$, $6A$. See <span class="cite">[<span class="postnote">p.7</span>, <a href="/bibliography/Ga">Ga</a>]</span> and <span class="cite">[<span class="postnote">p256</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. 
+</p>
+<p>
+A $3$-transposition group is a “finite group $G$ generated by a conjugacy class $D$ of involutions, such that any two elements of $D$ have a product of order at most $3$, and ... such that $G' = G''$ and any normal $2$- or $3$-subgroup of $G$ is central” <span class="cite">[<span class="postnote">p235</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. We call the elements of $D$ transpositions. There is a classification of $3$-transposition groups. There is a $3$-transposition group such that its quotient by its center is $Fi_ n$, for $n=22,23,24$. 
+</p>
+<ul>
+  <li><p>
+$Fi_{23}$. The stabilizer of one transposition in $Fi_{24}'$ is $Fi_{23}$. 
+</p>
+</li><li><p>
+$Fi_{22}$. The stabilizer of two commuting transpositions in $Fi_{24}'$ is $2\cdot Fi_{22}:2$. <span class="cite">[<span class="postnote">p.250</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span> 
+</p>
+</li>
+</ul>
+<h3 id="a0000000010" class="tex-subsection"><span data-tag="">10.5</span> The Pariahs</h3>
+<p>
+It is not clear what the best route to the six pariahs will be. Expert opinion is needed. At the very least we might specify them as the unique simple group of a given order, even if that is not a very useful description. “The behavior of these six groups is so bizarre that any attempt to describe them ends up looking like a disconnected sequence of related facts." <span class="cite">[<span class="postnote">p.184</span>, <a href="/bibliography/wilson2009finite">wilson2009finite</a>]</span>. <span class="cite">[<span class="postnote">pp.150-153</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span> gives a brief description of each pariah. 
+</p>
+<ul>
+  <li><p>
+$J_1$. “It is the unique simple group which has abelian Sylow $2$-groups and contains an involution with centralizer isomorphic to” $2 \times \text{Alt}_5$. <span class="cite">[<span class="postnote">p.150</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span> 
+</p>
+</li><li><p>
+$J_3$. This group appears in a centralizer involution problem. $2^{1+4}_{-}:\text{Alt}_5$, split extension (therefore not the standard holomorph, which embeds in $GL(4,C)$)” <span class="cite">[<span class="postnote">p.151</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span>. There are two finite simple groups with this involution centralizer. The other is $J_2$, which appears in the second happy family. $J_3$ has order $2^7\, 3^5\, 5.17.19$." 
+</p>
+</li><li><p>
+$Ly$. This group is uniquely characterized up to isomorphism as a finite simple group that contains an involution whose centralizer is isomorphic to $2 \cdot \text{Alt}_{11}$, the covering group of the alternating group of degree $11$. Moreover, the group has a single class of involutions and has order $2^8*3^5*5*7*11*37*61*67$. <span class="cite">[<span class="postnote">p.151</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span> 
+</p>
+</li><li><p>
+$O'N$. This is the unique simple group $G$ up to isomorphism with the following properties <span class="cite">[<span class="postnote">p.152</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span>: 
+</p>
+<ul>
+  <li><p>
+For every elementary subgroup $E$ of $G$, we have $N_ G(E)/C_ G(E) \simeq GL(E)$. 
+</p>
+</li><li><p>
+$G$ contains a subgroup $E \simeq 2^3$ such that $N_ G(E) \simeq 4^3 \cdot GL(3,2)$ 
+</p>
+</li><li><p>
+$G$ contains an involution whose centralizer has the form $4.PSL(3,2).2$. 
+</p>
+</li>
+</ul>
+</li><li><p>
+$J_4$. This is characterized as a finite simple group that contains an involution with centralizer isomorphic to $2^{1+12}_{-}\cdot 3\cdot M_{22}:2$. “The centralizer is nonsplit over the [$2$-core] $O_2$ and contains a perfect group $6\cdot M_{22}$." Moreover, the simple group has order $2^{21}3^35.7.11^3.23.29.31.37.43$ <span class="cite">[<span class="postnote">p.152</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span>. 
+</p>
+</li><li><p>
+Ru. A permutation group is defined to have rank $r$ if it is transitive and a point stabilizer has $r$ orbits. This group is characterized as a rank $3$ finite simple group whose point stabilizer is $H = {}^2F_4(2)$, the Ree group over the field with $2$ elements. (As described above, the derived group of $H$ is the Tits group.) <span class="cite">[<span class="postnote">p.151</span>, <a href="/bibliography/robert1998twelve">robert1998twelve</a>]</span> 
+</p>
+</li>
+</ul>
+<h2 id="a0000000008" class="tex-section"><span data-tag="">11</span> Checking the Answer</h2>
+<p>
+If proofs are not included in the statement of the theorem, what sanity checks are there to make sure that the specification is correct? One possibility that has been discussed is the following. There is currently a bridge between Mathematica and Lean, constructed by Rob Lewis and Minchao Wu <span class="cite">[<a href="/bibliography/L">L</a>]</span>. Lean is also now available as a package in CoCalc (which also provides access to GAP). We can hope that further development will provide a bridge (at some indefinite day in the future) that would allow for some sanity checks by running some GAP calculations based on the Lean specification and comparing to known answers. We can discuss what might be done here. 
+</p>
+<p>
+Other references <span class="cite">[<a href="/bibliography/aschbacher1994sporadic">aschbacher1994sporadic</a>]</span>, <span class="cite">[<a href="/bibliography/carter1985finite">carter1985finite</a>]</span>. 
+</p>

@@ -31,6 +31,7 @@ def test₁ : 1+1 =2 := by simp
 -- @[fabstract ABC101 ABC200]
 def test₂ : 1+1 =2 := by simp
 
+/-- the Harada–Norton group is C_M(x)/<x> for some element x in 5A -/
 @[fabstract ABC101 XYZ200]
 def welp : 1+1 =2 := by simp
 
@@ -63,6 +64,46 @@ do  m ← fabstract_attr.get_cache >>= rb_map_to_JSON,
     unsafe_run_io $ write_json m,
     skip
 
+-- def read : state (ℕ × string) ℕ :=
+-- do s ← get,
+--    return s.1
+
+
+-- def read_str : state (ℕ × string) string :=
+-- do s ← get,
+--    return s.2
+-- -- def read_y : state (ℕ × ℕ × ℕ) ℕ :=
+-- -- do s ← get,
+-- --    return s.2.1
+
+
+-- -- def read_z : state (ℕ × ℕ × ℕ) ℕ :=
+-- -- do s ← get,
+-- --    return s.2.2
+
+-- def write (n : ℕ) : state ℕ unit :=
+-- do s ← get,
+--    put (n),
+--    return ()
+
+-- -- def write_y (n : ℕ) : state (ℕ × ℕ × ℕ) unit :=
+-- -- do s ← get,
+-- --    put (s.1, n, s.2.2),
+-- --    return ()
+
+-- -- def write_z (n : ℕ) : state (ℕ × ℕ × ℕ) unit :=
+-- -- do s ← get,
+-- --    put (s.1, s.2.1, n),
+-- --    return ()
+
+-- #check state_t string tactic
+
+-- meta def test : state_t string tactic (ℕ)
+-- := do s ← get,
+--     put (s ++ "1"),
+--     return (1)
+
+-- -- #eval test.run ("hi")
 -- #check fabstract_attr.get_cache 
 -- run_cmd attribute.get_instances `fabstract >>= tactic.trace
 -- run_cmd mk_JSON_dump
@@ -71,3 +112,4 @@ run_cmd do
   l ← rb_map_to_JSON m,
   tactic.trace l,
   skip 
+
